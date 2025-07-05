@@ -24,10 +24,10 @@
     /* Ocean Blue Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(220 100% 65%) 100%);
     --gradient-secondary: linear-gradient(135deg, hsl(240 100% 70%) 0%, hsl(200 100% 50%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(230 45% 15%) 0%, hsl(220 100% 65%) 35%, hsl(200 100% 50%) 70%, hsl(180 84% 58%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 85%) 0%, hsl(220 100% 65%) 35%, hsl(200 100% 50%) 70%, hsl(180 84% 58%) 100%);
     --gradient-ocean: linear-gradient(135deg, hsl(210 85% 45%) 0%, hsl(200 100% 50%) 50%, hsl(190 100% 70%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220 60% 8% / 0.8) 0%, hsl(200 80% 10% / 0.9) 100%);
-    --gradient-glass: linear-gradient(145deg, hsl(200 100% 50% / 0.1) 0%, hsl(220 100% 65% / 0.05) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 20% 92% / 0.3) 0%, hsl(200 30% 95% / 0.2) 100%);
+    --gradient-glass: linear-gradient(145deg, hsl(0 0% 100% / 0.15) 0%, hsl(220 100% 65% / 0.1) 100%);
     
     /* Glass Effects */
     --glass-bg: hsla(0 0% 100% / 0.1);

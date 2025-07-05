@@ -101,24 +101,24 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-50">
         {/* 3D Background */}
         <div className="absolute inset-0">
           <Hero3D />
         </div>
         
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-blue-900/30 to-transparent" />
+        {/* Light glass overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-blue-100/30 to-cyan-100/20 backdrop-blur-sm" />
         
         {/* Floating geometric shapes */}
         <div className="absolute inset-0 overflow-hidden">
           {Array.from({ length: 15 }).map((_, i) => (
             <div
               key={i}
-              className={`absolute rounded-full floating ${
-                i % 3 === 0 ? 'bg-cyan-400/20 shadow-ocean' :
-                i % 3 === 1 ? 'bg-blue-400/20 shadow-ice' :
-                'bg-sky-400/20 shadow-teal'
+              className={`absolute rounded-full floating backdrop-blur-md ${
+                i % 3 === 0 ? 'bg-cyan-300/30 shadow-ocean border border-cyan-200/40' :
+                i % 3 === 1 ? 'bg-blue-300/30 shadow-ice border border-blue-200/40' :
+                'bg-sky-300/30 shadow-teal border border-sky-200/40'
               }`}
               style={{
                 width: `${Math.random() * 80 + 20}px`,
@@ -154,16 +154,16 @@ const Index = () => {
             ].map((feature, index) => (
               <div 
                 key={index}
-                className="bg-gradient-card backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 shadow-ocean"
+                className="bg-white/20 backdrop-blur-xl rounded-2xl p-6 border border-white/30 hover:border-cyan-300/50 transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-ocean"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-ocean flex items-center justify-center text-white font-bold text-lg shadow-ice">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-ocean flex items-center justify-center text-white font-bold text-lg shadow-ice backdrop-blur-sm">
                     {feature.number}
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold text-lg mb-2">{feature.title}</h3>
-                    <p className="text-blue-200 text-sm leading-relaxed">{feature.description}</p>
+                    <h3 className="text-slate-800 font-semibold text-lg mb-2">{feature.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               </div>
@@ -172,20 +172,20 @@ const Index = () => {
 
           {/* Right side - Main content */}
           <div className="text-center lg:text-left animate-fade-in" style={{ animationDelay: "400ms" }}>
-            <Badge className="mb-8 bg-gradient-glass backdrop-blur-md text-cyan-300 border border-cyan-400/40 text-base px-6 py-3 hover-scale shadow-ice">
-              <Sparkles className="w-5 h-5 mr-3 text-cyan-400" />
+            <Badge className="mb-8 bg-white/25 backdrop-blur-xl text-slate-700 border border-cyan-300/40 text-base px-6 py-3 hover-scale shadow-lg">
+              <Sparkles className="w-5 h-5 mr-3 text-cyan-500" />
               AI-Powered Document Processing
             </Badge>
             
             <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
-              <span className="text-white drop-shadow-2xl">Why Choose</span>
+              <span className="text-slate-800 drop-shadow-lg">Why Choose</span>
               <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-cyan-600 via-blue-600 to-sky-600 bg-clip-text text-transparent drop-shadow-lg">
                 DocuFlow AI?
               </span>
             </h1>
             
-            <p className="text-xl text-blue-200 mb-12 max-w-2xl leading-relaxed">
+            <p className="text-xl text-slate-700 mb-12 max-w-2xl leading-relaxed">
               Experience the most advanced AI-powered document processing platform. 
               Convert, analyze, and transform your documents with cutting-edge technology.
             </p>
@@ -195,7 +195,7 @@ const Index = () => {
                 <Button 
                   variant="default" 
                   size="xl" 
-                  className="min-w-[200px] bg-gradient-ocean hover:shadow-ocean transition-all duration-300 hover:scale-105 text-lg py-4"
+                  className="min-w-[200px] bg-gradient-ocean hover:shadow-ocean transition-all duration-300 hover:scale-105 text-lg py-4 backdrop-blur-sm"
                 >
                   <Zap className="w-6 h-6 mr-3" />
                   Start Free Trial
@@ -205,7 +205,7 @@ const Index = () => {
                 <Button 
                   variant="outline" 
                   size="xl" 
-                  className="min-w-[200px] bg-gradient-glass backdrop-blur-md border-2 border-cyan-400/40 text-cyan-300 hover:bg-cyan-500/20 hover:border-cyan-300/60 transition-all duration-300 hover:scale-105 text-lg py-4"
+                  className="min-w-[200px] bg-white/20 backdrop-blur-xl border-2 border-cyan-300/50 text-slate-700 hover:bg-white/30 hover:border-cyan-400/70 transition-all duration-300 hover:scale-105 text-lg py-4"
                 >
                   Explore Tools
                   <ArrowRight className="w-6 h-6 ml-3" />
@@ -217,7 +217,7 @@ const Index = () => {
 
         {/* Bottom scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-1 h-16 bg-gradient-to-b from-cyan-400/60 to-transparent rounded-full" />
+          <div className="w-1 h-16 bg-gradient-to-b from-cyan-500/60 to-transparent rounded-full" />
         </div>
       </section>
 

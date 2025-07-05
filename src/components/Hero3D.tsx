@@ -30,23 +30,23 @@ function FloatingDocument({ position, rotation = [0, 0, 0] as [number, number, n
         {/* Document lines */}
         <mesh position={[0, 0.3, 0.026]}>
           <boxGeometry args={[0.6, 0.02, 0.001]} />
-          <meshStandardMaterial color="#1e293b" />
+          <meshStandardMaterial color="#64748b" />
         </mesh>
         <mesh position={[0, 0.15, 0.026]}>
           <boxGeometry args={[0.65, 0.02, 0.001]} />
-          <meshStandardMaterial color="#1e293b" />
+          <meshStandardMaterial color="#64748b" />
         </mesh>
         <mesh position={[0, 0, 0.026]}>
           <boxGeometry args={[0.7, 0.02, 0.001]} />
-          <meshStandardMaterial color="#1e293b" />
+          <meshStandardMaterial color="#64748b" />
         </mesh>
         <mesh position={[0, -0.15, 0.026]}>
           <boxGeometry args={[0.55, 0.02, 0.001]} />
-          <meshStandardMaterial color="#1e293b" />
+          <meshStandardMaterial color="#64748b" />
         </mesh>
         <mesh position={[0, -0.3, 0.026]}>
           <boxGeometry args={[0.6, 0.02, 0.001]} />
-          <meshStandardMaterial color="#1e293b" />
+          <meshStandardMaterial color="#64748b" />
         </mesh>
       </mesh>
     </Float>
