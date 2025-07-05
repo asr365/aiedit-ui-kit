@@ -51,11 +51,19 @@ const Tools = () => {
           aiPowered: false
         },
         {
-          name: "PDF to Image",
-          description: "Convert PDF pages to JPG, PNG images",
-          icon: FileImage,
+          name: "Edit PDF",
+          description: "Add text, images, and annotations to PDFs",
+          icon: FileEdit,
+          popular: true,
+          href: "/tools/edit-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Rotate PDF",
+          description: "Rotate PDF pages to correct orientation",
+          icon: RotateCw,
           popular: false,
-          href: "/tools/pdf-to-image",
+          href: "/tools/rotate-pdf",
           aiPowered: false
         },
         {
@@ -75,19 +83,199 @@ const Tools = () => {
           aiPowered: false
         },
         {
-          name: "Edit PDF",
-          description: "Add text, images, and annotations to PDFs",
-          icon: FileEdit,
+          name: "PDF Viewer",
+          description: "View and navigate PDF documents online",
+          icon: Eye,
+          popular: false,
+          href: "/tools/pdf-viewer",
+          aiPowered: false
+        }
+      ]
+    },
+    {
+      name: "Convert from PDF",
+      tools: [
+        {
+          name: "PDF to Word",
+          description: "Convert PDF to editable DOC/DOCX documents",
+          icon: FileText,
           popular: true,
-          href: "/tools/edit-pdf",
+          href: "/tools/pdf-to-word",
           aiPowered: false
         },
         {
-          name: "Rotate PDF",
-          description: "Rotate PDF pages to correct orientation",
-          icon: RotateCw,
+          name: "PDF to Excel",
+          description: "Extract tables and data to Excel spreadsheets",
+          icon: FileText,
+          popular: true,
+          href: "/tools/pdf-to-excel",
+          aiPowered: false
+        },
+        {
+          name: "PDF to PowerPoint",
+          description: "Convert PDF pages to PPT presentations",
+          icon: FileText,
           popular: false,
-          href: "/tools/rotate-pdf",
+          href: "/tools/pdf-to-ppt",
+          aiPowered: false
+        },
+        {
+          name: "PDF to Images",
+          description: "Convert PDF pages to JPG, PNG, TIFF images",
+          icon: FileImage,
+          popular: true,
+          href: "/tools/pdf-to-image",
+          aiPowered: false
+        },
+        {
+          name: "PDF to Text",
+          description: "Extract all text content from PDF documents",
+          icon: FileText,
+          popular: false,
+          href: "/tools/pdf-to-text",
+          aiPowered: false
+        }
+      ]
+    },
+    {
+      name: "Convert to PDF",
+      tools: [
+        {
+          name: "Word to PDF",
+          description: "Convert DOC/DOCX documents to PDF format",
+          icon: Upload,
+          popular: true,
+          href: "/tools/word-to-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Excel to PDF",
+          description: "Convert spreadsheets to PDF documents",
+          icon: Upload,
+          popular: false,
+          href: "/tools/excel-to-pdf",
+          aiPowered: false
+        },
+        {
+          name: "PowerPoint to PDF",
+          description: "Convert presentations to PDF format",
+          icon: Upload,
+          popular: false,
+          href: "/tools/ppt-to-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Images to PDF",
+          description: "Convert JPG, PNG images to PDF documents",
+          icon: Upload,
+          popular: true,
+          href: "/tools/jpg-to-pdf",
+          aiPowered: false
+        },
+        {
+          name: "HTML to PDF",
+          description: "Convert web pages to PDF documents",
+          icon: Upload,
+          popular: false,
+          href: "/tools/html-to-pdf",
+          aiPowered: false
+        }
+      ]
+    },
+    {
+      name: "Organize & Edit",
+      tools: [
+        {
+          name: "Extract Pages",
+          description: "Get specific pages from PDF documents",
+          icon: FileText,
+          popular: false,
+          href: "/tools/extract-pages",
+          aiPowered: false
+        },
+        {
+          name: "Delete Pages",
+          description: "Remove unwanted pages from PDF documents",
+          icon: FileX,
+          popular: false,
+          href: "/tools/delete-pages",
+          aiPowered: false
+        },
+        {
+          name: "Organize PDF",
+          description: "Reorder and arrange PDF pages",
+          icon: Copy,
+          popular: false,
+          href: "/tools/organize-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Crop PDF",
+          description: "Trim PDF margins and adjust page size",
+          icon: Scan,
+          popular: false,
+          href: "/tools/crop-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Resize PDF",
+          description: "Change PDF page dimensions and margins",
+          icon: Scan,
+          popular: false,
+          href: "/tools/resize-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Alternate & Mix",
+          description: "Mix pages from multiple documents alternately",
+          icon: Copy,
+          popular: false,
+          href: "/tools/alternate-mix",
+          aiPowered: false
+        }
+      ]
+    },
+    {
+      name: "Advanced Split Tools",
+      tools: [
+        {
+          name: "Split by Pages",
+          description: "Split PDF into specific page ranges",
+          icon: Split,
+          popular: false,
+          href: "/tools/split-pages",
+          aiPowered: false
+        },
+        {
+          name: "Split by Bookmarks",
+          description: "Split PDF chapters based on bookmarks",
+          icon: Split,
+          popular: false,
+          href: "/tools/split-bookmarks",
+          aiPowered: false
+        },
+        {
+          name: "Split in Half",
+          description: "Split two-page layouts into separate pages",
+          icon: Split,
+          popular: false,
+          href: "/tools/split-half",
+          aiPowered: false
+        },
+        {
+          name: "Split by Size",
+          description: "Create smaller files with specific sizes",
+          icon: Split,
+          popular: false,
+          href: "/tools/split-size",
+          aiPowered: false
+        },
+        {
+          name: "Split by Text",
+          description: "Split when specific text changes between pages",
+          icon: Split,
+          popular: false,
+          href: "/tools/split-text",
           aiPowered: false
         }
       ]
@@ -105,27 +293,35 @@ const Tools = () => {
           aiPowered: true
         },
         {
-          name: "Smart Form Auto-Fill",
-          description: "Automatically detect and fill form fields",
-          icon: FileEdit,
+          name: "PDF Chat Assistant",
+          description: "Ask questions about your document content",
+          icon: MessageSquare,
           popular: true,
-          href: "/tools/smart-forms",
+          href: "/tools/pdf-chat",
           aiPowered: true
         },
         {
           name: "AI Translation",
           description: "Translate documents while preserving formatting",
           icon: Languages,
-          popular: false,
+          popular: true,
           href: "/tools/ai-translate",
           aiPowered: true
         },
         {
-          name: "PDF Chat Assistant",
-          description: "Ask questions about your document content",
+          name: "AI Question Generator",
+          description: "Generate questions from document content",
           icon: MessageSquare,
+          popular: false,
+          href: "/tools/ai-question-generator",
+          aiPowered: true
+        },
+        {
+          name: "Smart Form Auto-Fill",
+          description: "Automatically detect and fill form fields",
+          icon: FileEdit,
           popular: true,
-          href: "/tools/pdf-chat",
+          href: "/tools/smart-forms",
           aiPowered: true
         },
         {
@@ -147,7 +343,105 @@ const Tools = () => {
       ]
     },
     {
-      name: "Advanced Tools",
+      name: "Sign & Forms",
+      tools: [
+        {
+          name: "Sign PDF",
+          description: "Add electronic signatures to documents",
+          icon: PenTool,
+          popular: true,
+          href: "/tools/sign-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Fill & Sign",
+          description: "Fill out forms and add signatures",
+          icon: FileEdit,
+          popular: true,
+          href: "/tools/fill-sign",
+          aiPowered: false
+        },
+        {
+          name: "Create Forms",
+          description: "Make existing PDFs fillable with form fields",
+          icon: FileEdit,
+          popular: false,
+          href: "/tools/create-forms",
+          aiPowered: false
+        },
+        {
+          name: "Request Signatures",
+          description: "Send documents for others to sign",
+          icon: MessageSquare,
+          popular: false,
+          href: "/tools/request-signatures",
+          aiPowered: false
+        },
+        {
+          name: "Flatten PDF",
+          description: "Make fillable PDFs read-only permanently",
+          icon: FileText,
+          popular: false,
+          href: "/tools/flatten-pdf",
+          aiPowered: false
+        }
+      ]
+    },
+    {
+      name: "Annotation & Enhancement",
+      tools: [
+        {
+          name: "PDF Annotator",
+          description: "Add comments, highlights, and annotations",
+          icon: PenTool,
+          popular: false,
+          href: "/tools/pdf-annotator",
+          aiPowered: false
+        },
+        {
+          name: "Watermark PDF",
+          description: "Add text or image watermarks to documents",
+          icon: FileImage,
+          popular: false,
+          href: "/tools/watermark-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Add Page Numbers",
+          description: "Insert page numbers to PDF documents",
+          icon: FileText,
+          popular: false,
+          href: "/tools/page-numbers",
+          aiPowered: false
+        },
+        {
+          name: "Header & Footer",
+          description: "Add headers and footers to PDF pages", 
+          icon: FileText,
+          popular: false,
+          href: "/tools/header-footer",
+          aiPowered: false
+        },
+        {
+          name: "Redact PDF",
+          description: "Remove sensitive information permanently",
+          icon: Eye,
+          popular: false,
+          href: "/tools/redact-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Remove Annotations",
+          description: "Delete highlights and comments from PDFs",
+          icon: FileX,
+          popular: false,
+          href: "/tools/remove-annotations",
+          aiPowered: false
+        }
+      ]
+    },
+    {
+      name: "Quality & Processing",
       tools: [
         {
           name: "OCR Scanner",
@@ -158,43 +452,112 @@ const Tools = () => {
           aiPowered: false
         },
         {
-          name: "QR Code Generator",
-          description: "Create QR codes and barcodes for documents",
-          icon: QrCode,
+          name: "Deskew PDF",
+          description: "Automatically straighten scanned PDF pages",
+          icon: RotateCw,
           popular: false,
-          href: "/tools/qr-generator",
+          href: "/tools/deskew-pdf",
           aiPowered: false
         },
         {
-          name: "Handwriting to Text",
-          description: "Convert handwritten notes to digital text",
-          icon: PenTool,
+          name: "Grayscale PDF",
+          description: "Convert PDF colors to grayscale",
+          icon: FileImage,
           popular: false,
-          href: "/tools/handwriting-ocr",
+          href: "/tools/grayscale-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Extract Images",
+          description: "Get all images from PDF documents",
+          icon: FileImage,
+          popular: false,
+          href: "/tools/extract-images",
+          aiPowered: false
+        },
+        {
+          name: "PDF Scanner",
+          description: "Scan physical documents to PDF",
+          icon: Scan,
+          popular: true,
+          href: "/tools/pdf-scanner",
+          aiPowered: false
+        },
+        {
+          name: "Repair PDF",
+          description: "Fix corrupted or damaged PDF files",
+          icon: FileText,
+          popular: false,
+          href: "/tools/repair-pdf",
+          aiPowered: false
+        }
+      ]
+    },
+    {
+      name: "Advanced Features",
+      tools: [
+        {
+          name: "Create Bookmarks",
+          description: "Add navigation bookmarks to PDFs",
+          icon: FileText,
+          popular: false,
+          href: "/tools/create-bookmarks",
+          aiPowered: false
+        },
+        {
+          name: "Edit Metadata",
+          description: "Change PDF title, author, and properties",
+          icon: FileEdit,
+          popular: false,
+          href: "/tools/edit-metadata",
+          aiPowered: false
+        },
+        {
+          name: "Bates Numbering",
+          description: "Add sequential numbering for legal documents",
+          icon: FileText,
+          popular: false,
+          href: "/tools/bates-numbering",
+          aiPowered: false
+        },
+        {
+          name: "N-up Printing",
+          description: "Print multiple pages per sheet",
+          icon: Copy,
+          popular: false,
+          href: "/tools/n-up-pdf",
+          aiPowered: false
+        },
+        {
+          name: "Rename Files",
+          description: "Auto-rename PDFs based on content",
+          icon: FileText,
+          popular: false,
+          href: "/tools/rename-pdf",
           aiPowered: false
         },
         {
           name: "Document Comparison",
-          description: "Highlight differences between two documents",
+          description: "Compare and highlight differences between PDFs",
           icon: Copy,
           popular: false,
           href: "/tools/document-compare",
           aiPowered: false
         },
         {
-          name: "PDF Viewer",
-          description: "View and navigate PDF documents online",
-          icon: Eye,
+          name: "Share PDF",
+          description: "Create shareable links for PDF documents",
+          icon: Upload,
           popular: false,
-          href: "/tools/pdf-viewer",
+          href: "/tools/share-pdf",
           aiPowered: false
         },
         {
-          name: "Delete Pages",
-          description: "Remove unwanted pages from PDF documents",
-          icon: FileX,
+          name: "QR Code Generator",
+          description: "Create QR codes linking to your documents",
+          icon: QrCode,
           popular: false,
-          href: "/tools/delete-pages",
+          href: "/tools/qr-generator",
           aiPowered: false
         }
       ]
