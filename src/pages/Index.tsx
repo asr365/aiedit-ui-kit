@@ -101,123 +101,153 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-50">
-        {/* 3D Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100">
+        {/* Background Elements */}
         <div className="absolute inset-0">
-          <Hero3D />
-        </div>
-        
-        {/* Light glass overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-blue-100/30 to-cyan-100/20 backdrop-blur-sm" />
-        
-        {/* Floating geometric shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          {Array.from({ length: 15 }).map((_, i) => (
-            <div
-              key={i}
-              className={`absolute rounded-full floating backdrop-blur-md ${
-                i % 3 === 0 ? 'bg-cyan-300/30 shadow-ocean border border-cyan-200/40' :
-                i % 3 === 1 ? 'bg-blue-300/30 shadow-ice border border-blue-200/40' :
-                'bg-sky-300/30 shadow-teal border border-sky-200/40'
-              }`}
-              style={{
-                width: `${Math.random() * 80 + 20}px`,
-                height: `${Math.random() * 80 + 20}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 6}s`,
-                animationDuration: `${6 + Math.random() * 4}s`,
-              }}
-            />
-          ))}
+          {/* Gradient Orbs */}
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-300/10 to-blue-300/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left side - Feature cards */}
-          <div className="space-y-6 animate-fade-in">
-            {[
-              {
-                number: "01",
-                title: "Smart PDF Conversion",
-                description: "Convert PDFs to Word, Excel, PowerPoint with AI-enhanced accuracy and formatting preservation"
-              },
-              {
-                number: "02", 
-                title: "AI Document Analysis",
-                description: "Get intelligent summaries and insights from your documents using advanced AI technology"
-              },
-              {
-                number: "03",
-                title: "Advanced Processing",
-                description: "Combine, split, compress and optimize documents with enterprise-grade security"
-              }
-            ].map((feature, index) => (
-              <div 
-                key={index}
-                className="bg-white/20 backdrop-blur-xl rounded-2xl p-6 border border-white/30 hover:border-cyan-300/50 transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-ocean"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-ocean flex items-center justify-center text-white font-bold text-lg shadow-ice backdrop-blur-sm">
-                    {feature.number}
-                  </div>
-                  <div>
-                    <h3 className="text-slate-800 font-semibold text-lg mb-2">{feature.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center py-20">
+          {/* Left Content */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-purple-200/50">
+              <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-gray-700">AI-Powered Platform</span>
+            </div>
 
-          {/* Right side - Main content */}
-          <div className="text-center lg:text-left animate-fade-in" style={{ animationDelay: "400ms" }}>
-            <Badge className="mb-8 bg-white/25 backdrop-blur-xl text-slate-700 border border-cyan-300/40 text-base px-6 py-3 hover-scale shadow-lg">
-              <Sparkles className="w-5 h-5 mr-3 text-cyan-500" />
-              AI-Powered Document Processing
-            </Badge>
-            
-            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
-              <span className="text-gray-900 drop-shadow-lg">Why Choose</span>
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+              <span className="text-gray-900">The Smarter,</span>
               <br />
-              <span className="bg-gradient-to-r from-cyan-600 via-blue-600 to-sky-600 bg-clip-text text-transparent drop-shadow-lg">
-                DocuFlow AI?
+              <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+                AI Powered
               </span>
+              <br />
+              <span className="text-gray-900">Document</span>
+              <br />
+              <span className="text-gray-900">Platform</span>
             </h1>
-            
-            <p className="text-xl text-gray-800 mb-12 max-w-2xl leading-relaxed">
-              Experience the most advanced AI-powered document processing platform. 
-              Convert, analyze, and transform your documents with cutting-edge technology.
+
+            <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
+              Harness the power of advanced AI to transform your document workflow. 
+              Convert, analyze, and process documents with unprecedented accuracy.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/signup">
                 <Button 
-                  variant="default" 
-                  size="xl" 
-                  className="min-w-[200px] bg-gradient-ocean hover:shadow-ocean transition-all duration-300 hover:scale-105 text-lg py-4 backdrop-blur-sm"
+                  size="lg" 
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
-                  <Zap className="w-6 h-6 mr-3" />
-                  Start Free Trial
+                  Get Started
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
               <Link to="/tools">
                 <Button 
                   variant="outline" 
-                  size="xl" 
-                  className="min-w-[200px] bg-white/20 backdrop-blur-xl border-2 border-cyan-300/50 text-slate-700 hover:bg-white/30 hover:border-cyan-400/70 transition-all duration-300 hover:scale-105 text-lg py-4"
+                  size="lg" 
+                  className="bg-white/80 backdrop-blur-sm border-2 border-purple-200 text-gray-700 hover:bg-white hover:border-purple-300 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105"
                 >
-                  Explore Tools
-                  <ArrowRight className="w-6 h-6 ml-3" />
+                  Explore Features
                 </Button>
               </Link>
             </div>
           </div>
-        </div>
 
-        {/* Bottom scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-1 h-16 bg-gradient-to-b from-cyan-500/60 to-transparent rounded-full" />
+          {/* Right side - 3D Floating Elements */}
+          <div className="relative animate-fade-in" style={{ animationDelay: "300ms" }}>
+            {/* Main Dashboard Card */}
+            <div className="relative">
+              <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/50 floating" style={{ animationDelay: '0s' }}>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                      <FileText className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="font-semibold text-gray-800">DocuFlow AI</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 bg-red-400 rounded-full" />
+                    <div className="w-3 h-3 bg-yellow-400 rounded-full" />
+                    <div className="w-3 h-3 bg-green-400 rounded-full" />
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-xl">
+                    <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                      <Brain className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-gray-800">AI Analysis</div>
+                      <div className="text-sm text-gray-500">Processing complete</div>
+                    </div>
+                    <div className="ml-auto">
+                      <CheckCircle className="w-5 h-5 text-green-500" />
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-xl">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                      <FileText className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-gray-800">PDF Conversion</div>
+                      <div className="text-sm text-gray-500">Ready to download</div>
+                    </div>
+                    <div className="ml-auto">
+                      <div className="w-5 h-5 border-2 border-blue-500 rounded-full animate-spin border-t-transparent" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Stats Card */}
+              <div className="absolute -top-6 -right-8 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl p-4 border border-white/50 floating" style={{ animationDelay: '1s' }}>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-xl flex items-center justify-center">
+                    <BarChart3 className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-800">99.9%</div>
+                    <div className="text-sm text-gray-500">Accuracy</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Speed Indicator */}
+              <div className="absolute -bottom-4 -left-8 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl p-4 border border-white/50 floating" style={{ animationDelay: '2s' }}>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-red-500 rounded-xl flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-800">10x</div>
+                    <div className="text-sm text-gray-500">Faster</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Document Types */}
+              <div className="absolute top-1/2 -left-12 transform -translate-y-1/2 space-y-3 floating" style={{ animationDelay: '1.5s' }}>
+                {[
+                  { icon: FileText, color: 'from-red-400 to-pink-500', label: 'PDF' },
+                  { icon: FileText, color: 'from-blue-400 to-purple-500', label: 'Word' },
+                  { icon: BarChart3, color: 'from-green-400 to-teal-500', label: 'Excel' }
+                ].map((item, index) => (
+                  <div key={index} className="bg-white/90 backdrop-blur-xl rounded-xl shadow-lg p-3 border border-white/50 hover:scale-110 transition-transform" style={{ animationDelay: `${0.5 + index * 0.2}s` }}>
+                    <div className={`w-10 h-10 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center`}>
+                      <item.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="text-xs text-gray-600 mt-1 text-center">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
