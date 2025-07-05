@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Pricing from "./pages/Pricing";
 import Tools from "./pages/Tools";
+import Features from "./pages/Features";
+import About from "./pages/About";
 import PDFToWord from "./pages/PDFToWord";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/signup" element={<SignUp />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/tools" element={<Tools />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/about" element={<About />} />
           <Route path="/tools/pdf-to-word" element={<PDFToWord />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
