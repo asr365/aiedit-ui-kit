@@ -12,6 +12,7 @@ import Features from "./pages/Features";
 import About from "./pages/About";
 import PDFToWord from "./pages/PDFToWord";
 import Dashboard from "./pages/Dashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 import { DashboardLayout } from "./components/DashboardLayout";
 
@@ -44,6 +45,13 @@ const App = () => (
                 <Route path="upload" element={<div className="p-8"><h1 className="text-2xl font-bold">Upload</h1></div>} />
                 <Route path="settings" element={<div className="p-8"><h1 className="text-2xl font-bold">Settings</h1></div>} />
               </Routes>
+            </DashboardLayout>
+          } />
+          
+          {/* Admin Dashboard Route */}
+          <Route path="/admin" element={
+            <DashboardLayout>
+              <AdminDashboard />
             </DashboardLayout>
           } />
           
