@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Hero3D from "@/components/Hero3D";
 import heroImage from "@/assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -101,59 +102,93 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-hero/80" />
+        {/* 3D Background */}
+        <div className="absolute inset-0 bg-gradient-hero">
+          <Hero3D />
+        </div>
+        
+        {/* Animated Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-blue-600/20 to-indigo-600/20 animate-pulse-slow" />
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-white/20 rounded-full floating"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 6}s`,
+                animationDuration: `${4 + Math.random() * 4}s`
+              }}
+            />
+          ))}
+        </div>
         
         <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
-          <Badge className="mb-6 bg-white/20 text-white border-white/30 text-sm px-4 py-1">
-            <Sparkles className="w-4 h-4 mr-2" />
-            AI-Powered Document Processing
-          </Badge>
+          <div className="animate-fade-in">
+            <Badge className="mb-8 bg-white/20 backdrop-blur-md text-white border-white/30 text-base px-6 py-3 hover-scale">
+              <Sparkles className="w-5 h-5 mr-3" />
+              AI-Powered Document Processing
+            </Badge>
+          </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Transform Documents
-            <br />
-            <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-              with AI Magic
-            </span>
-          </h1>
+          <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+              Transform Documents
+              <br />
+              <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent animate-pulse">
+                with AI Magic
+              </span>
+            </h1>
+          </div>
           
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
-            The most advanced PDF processing platform. Convert, edit, analyze, and chat with your documents using cutting-edge AI technology.
-          </p>
+          <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-90">
+              The most advanced PDF processing platform. Convert, edit, analyze, and 
+              chat with your documents using cutting-edge AI technology.
+            </p>
+          </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="animate-fade-in flex flex-col sm:flex-row gap-6 justify-center" style={{ animationDelay: "0.6s" }}>
             <Link to="/signup">
-              <Button variant="glass" size="xl" className="min-w-[200px]">
-                <Zap className="w-5 h-5 mr-2" />
+              <Button variant="glass" size="xl" className="min-w-[220px] hover-scale group text-lg py-4">
+                <Zap className="w-6 h-6 mr-3 group-hover:animate-pulse" />
                 Start Free Trial
               </Button>
             </Link>
             <Link to="/tools">
-              <Button variant="outline" size="xl" className="min-w-[200px] bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20">
+              <Button 
+                variant="outline" 
+                size="xl" 
+                className="min-w-[220px] bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20 hover-scale text-lg py-4"
+              >
                 Explore Tools
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-6 h-6 ml-3" />
               </Button>
             </Link>
           </div>
           
-          <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm opacity-80">
-            <div className="flex items-center">
-              <Shield className="w-4 h-4 mr-2" />
+          <div className="animate-fade-in mt-16 flex flex-wrap justify-center gap-12 text-sm opacity-80" style={{ animationDelay: "0.8s" }}>
+            <div className="flex items-center hover-scale">
+              <Shield className="w-5 h-5 mr-3" />
               Enterprise-grade security
             </div>
-            <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-2" />
+            <div className="flex items-center hover-scale">
+              <Clock className="w-5 h-5 mr-3" />
               Processing in seconds
             </div>
-            <div className="flex items-center">
-              <Users className="w-4 h-4 mr-2" />
+            <div className="flex items-center hover-scale">
+              <Users className="w-5 h-5 mr-3" />
               Trusted by 100K+ users
             </div>
           </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-1 h-16 bg-gradient-to-b from-white/60 to-transparent rounded-full" />
         </div>
       </section>
 
