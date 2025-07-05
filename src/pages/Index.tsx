@@ -178,14 +178,14 @@ const Index = () => {
             </Badge>
             
             <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
-              <span className="text-slate-800 drop-shadow-lg">Why Choose</span>
+              <span className="text-gray-900 drop-shadow-lg">Why Choose</span>
               <br />
               <span className="bg-gradient-to-r from-cyan-600 via-blue-600 to-sky-600 bg-clip-text text-transparent drop-shadow-lg">
                 DocuFlow AI?
               </span>
             </h1>
             
-            <p className="text-xl text-slate-700 mb-12 max-w-2xl leading-relaxed">
+            <p className="text-xl text-gray-800 mb-12 max-w-2xl leading-relaxed">
               Experience the most advanced AI-powered document processing platform. 
               Convert, analyze, and transform your documents with cutting-edge technology.
             </p>
