@@ -101,111 +101,123 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
         {/* 3D Background */}
-        <div className="absolute inset-0 bg-gradient-hero">
+        <div className="absolute inset-0">
           <Hero3D />
         </div>
         
-        {/* Animated Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-pink-600/30 to-teal-600/30 animate-pulse-slow" />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-blue-900/30 to-transparent" />
         
-        {/* Additional Color Layers */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-transparent to-emerald-500/20 animate-pulse-slow" style={{ animationDelay: "2s" }} />
-        <div className="absolute inset-0 bg-gradient-to-bl from-cyan-500/20 via-transparent to-pink-500/20 animate-pulse-slow" style={{ animationDelay: "4s" }} />
-        
-        {/* Enhanced Floating Particles */}
+        {/* Floating geometric shapes */}
         <div className="absolute inset-0 overflow-hidden">
-          {Array.from({ length: 30 }).map((_, i) => (
+          {Array.from({ length: 15 }).map((_, i) => (
             <div
               key={i}
-              className={`absolute w-3 h-3 rounded-full floating ${
-                i % 5 === 0 ? 'bg-pink-400/40' :
-                i % 5 === 1 ? 'bg-cyan-400/40' :
-                i % 5 === 2 ? 'bg-emerald-400/40' :
-                i % 5 === 3 ? 'bg-orange-400/40' :
-                'bg-purple-400/40'
+              className={`absolute rounded-full floating ${
+                i % 3 === 0 ? 'bg-cyan-400/20 shadow-ocean' :
+                i % 3 === 1 ? 'bg-blue-400/20 shadow-ice' :
+                'bg-sky-400/20 shadow-teal'
               }`}
               style={{
+                width: `${Math.random() * 80 + 20}px`,
+                height: `${Math.random() * 80 + 20}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 6}s`,
-                animationDuration: `${4 + Math.random() * 4}s`,
-                boxShadow: i % 5 === 0 ? '0 0 20px rgba(244, 114, 182, 0.6)' :
-                          i % 5 === 1 ? '0 0 20px rgba(34, 211, 238, 0.6)' :
-                          i % 5 === 2 ? '0 0 20px rgba(52, 211, 153, 0.6)' :
-                          i % 5 === 3 ? '0 0 20px rgba(251, 146, 60, 0.6)' :
-                                       '0 0 20px rgba(168, 85, 247, 0.6)'
+                animationDuration: `${6 + Math.random() * 4}s`,
               }}
             />
           ))}
         </div>
-        
-        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
-          <div className="animate-fade-in">
-            <Badge className="mb-8 bg-gradient-to-r from-pink-500/30 to-teal-500/30 backdrop-blur-md text-white border-2 border-white/40 text-base px-6 py-3 hover-scale shadow-rainbow">
-              <Sparkles className="w-5 h-5 mr-3 text-yellow-300" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left side - Feature cards */}
+          <div className="space-y-6 animate-fade-in">
+            {[
+              {
+                number: "01",
+                title: "Smart PDF Conversion",
+                description: "Convert PDFs to Word, Excel, PowerPoint with AI-enhanced accuracy and formatting preservation"
+              },
+              {
+                number: "02", 
+                title: "AI Document Analysis",
+                description: "Get intelligent summaries and insights from your documents using advanced AI technology"
+              },
+              {
+                number: "03",
+                title: "Advanced Processing",
+                description: "Combine, split, compress and optimize documents with enterprise-grade security"
+              }
+            ].map((feature, index) => (
+              <div 
+                key={index}
+                className="bg-gradient-card backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 shadow-ocean"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-ocean flex items-center justify-center text-white font-bold text-lg shadow-ice">
+                    {feature.number}
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold text-lg mb-2">{feature.title}</h3>
+                    <p className="text-blue-200 text-sm leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right side - Main content */}
+          <div className="text-center lg:text-left animate-fade-in" style={{ animationDelay: "400ms" }}>
+            <Badge className="mb-8 bg-gradient-glass backdrop-blur-md text-cyan-300 border border-cyan-400/40 text-base px-6 py-3 hover-scale shadow-ice">
+              <Sparkles className="w-5 h-5 mr-3 text-cyan-400" />
               AI-Powered Document Processing
             </Badge>
-          </div>
-          
-          <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse">
-                Transform Documents
-              </span>
+            
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+              <span className="text-white drop-shadow-2xl">Why Choose</span>
               <br />
-              <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
-                with AI Magic
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent drop-shadow-2xl">
+                DocuFlow AI?
               </span>
             </h1>
-          </div>
-          
-          <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed text-white drop-shadow-lg bg-gradient-to-r from-purple-900/40 via-blue-900/40 to-teal-900/40 backdrop-blur-md rounded-2xl p-6 border-2 border-gradient-to-r from-pink-400/30 to-cyan-400/30 shadow-rainbow">
-              The most advanced PDF processing platform. Convert, edit, analyze, and 
-              chat with your documents using cutting-edge AI technology.
+            
+            <p className="text-xl text-blue-200 mb-12 max-w-2xl leading-relaxed">
+              Experience the most advanced AI-powered document processing platform. 
+              Convert, analyze, and transform your documents with cutting-edge technology.
             </p>
-          </div>
-          
-          <div className="animate-fade-in flex flex-col sm:flex-row gap-6 justify-center" style={{ animationDelay: "0.6s" }}>
-            <Link to="/signup">
-              <Button variant="glass" size="xl" className="min-w-[220px] hover-scale group text-lg py-4 bg-gradient-to-r from-pink-500/20 to-purple-500/20 border-2 border-white/40 shadow-rainbow hover:shadow-teal">
-                <Zap className="w-6 h-6 mr-3 group-hover:animate-pulse text-yellow-300" />
-                Start Free Trial
-              </Button>
-            </Link>
-            <Link to="/tools">
-              <Button 
-                variant="outline" 
-                size="xl" 
-                className="min-w-[220px] bg-gradient-to-r from-teal-500/20 to-emerald-500/20 backdrop-blur-md border-2 border-cyan-400/40 text-white hover:bg-gradient-to-r hover:from-teal-500/30 hover:to-emerald-500/30 hover-scale text-lg py-4 shadow-teal"
-              >
-                Explore Tools
-                <ArrowRight className="w-6 h-6 ml-3 text-emerald-300" />
-              </Button>
-            </Link>
-          </div>
-          
-          <div className="animate-fade-in mt-16 flex flex-wrap justify-center gap-12 text-sm opacity-90" style={{ animationDelay: "0.8s" }}>
-            <div className="flex items-center hover-scale bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-md rounded-full px-4 py-2 border border-blue-400/30">
-              <Shield className="w-5 h-5 mr-3 text-blue-300" />
-              Enterprise-grade security
-            </div>
-            <div className="flex items-center hover-scale bg-gradient-to-r from-emerald-500/20 to-teal-500/20 backdrop-blur-md rounded-full px-4 py-2 border border-emerald-400/30">
-              <Clock className="w-5 h-5 mr-3 text-emerald-300" />
-              Processing in seconds
-            </div>
-            <div className="flex items-center hover-scale bg-gradient-to-r from-pink-500/20 to-red-500/20 backdrop-blur-md rounded-full px-4 py-2 border border-pink-400/30">
-              <Users className="w-5 h-5 mr-3 text-pink-300" />
-              Trusted by 100K+ users
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Link to="/signup">
+                <Button 
+                  variant="default" 
+                  size="xl" 
+                  className="min-w-[200px] bg-gradient-ocean hover:shadow-ocean transition-all duration-300 hover:scale-105 text-lg py-4"
+                >
+                  <Zap className="w-6 h-6 mr-3" />
+                  Start Free Trial
+                </Button>
+              </Link>
+              <Link to="/tools">
+                <Button 
+                  variant="outline" 
+                  size="xl" 
+                  className="min-w-[200px] bg-gradient-glass backdrop-blur-md border-2 border-cyan-400/40 text-cyan-300 hover:bg-cyan-500/20 hover:border-cyan-300/60 transition-all duration-300 hover:scale-105 text-lg py-4"
+                >
+                  Explore Tools
+                  <ArrowRight className="w-6 h-6 ml-3" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Bottom scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-1 h-16 bg-gradient-to-b from-white/60 to-transparent rounded-full" />
+          <div className="w-1 h-16 bg-gradient-to-b from-cyan-400/60 to-transparent rounded-full" />
         </div>
       </section>
 

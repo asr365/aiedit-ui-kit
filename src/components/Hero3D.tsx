@@ -4,7 +4,7 @@ import { useRef, Suspense } from 'react';
 import * as THREE from 'three';
 
 // Floating Document Component
-function FloatingDocument({ position, rotation = [0, 0, 0] as [number, number, number], scale = 1, color = "#ffffff" }) {
+function FloatingDocument({ position, rotation = [0, 0, 0] as [number, number, number], scale = 1, color = "#60a5fa" }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -20,31 +20,33 @@ function FloatingDocument({ position, rotation = [0, 0, 0] as [number, number, n
         <boxGeometry args={[0.8, 1.2, 0.05]} />
         <meshStandardMaterial 
           color={color} 
-          metalness={0.1} 
-          roughness={0.2}
+          metalness={0.3} 
+          roughness={0.1}
           transparent
           opacity={0.9}
+          emissive={color}
+          emissiveIntensity={0.1}
         />
         {/* Document lines */}
         <mesh position={[0, 0.3, 0.026]}>
           <boxGeometry args={[0.6, 0.02, 0.001]} />
-          <meshStandardMaterial color="#333333" />
+          <meshStandardMaterial color="#1e293b" />
         </mesh>
         <mesh position={[0, 0.15, 0.026]}>
           <boxGeometry args={[0.65, 0.02, 0.001]} />
-          <meshStandardMaterial color="#333333" />
+          <meshStandardMaterial color="#1e293b" />
         </mesh>
         <mesh position={[0, 0, 0.026]}>
           <boxGeometry args={[0.7, 0.02, 0.001]} />
-          <meshStandardMaterial color="#333333" />
+          <meshStandardMaterial color="#1e293b" />
         </mesh>
         <mesh position={[0, -0.15, 0.026]}>
           <boxGeometry args={[0.55, 0.02, 0.001]} />
-          <meshStandardMaterial color="#333333" />
+          <meshStandardMaterial color="#1e293b" />
         </mesh>
         <mesh position={[0, -0.3, 0.026]}>
           <boxGeometry args={[0.6, 0.02, 0.001]} />
-          <meshStandardMaterial color="#333333" />
+          <meshStandardMaterial color="#1e293b" />
         </mesh>
       </mesh>
     </Float>
@@ -52,7 +54,7 @@ function FloatingDocument({ position, rotation = [0, 0, 0] as [number, number, n
 }
 
 // Floating Orb Component
-function FloatingOrb({ position, color = "#6366f1", size = 0.3 }) {
+function FloatingOrb({ position, color = "#0ea5e9", size = 0.3 }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -69,9 +71,11 @@ function FloatingOrb({ position, color = "#6366f1", size = 0.3 }) {
         <meshStandardMaterial 
           color={color} 
           emissive={color}
-          emissiveIntensity={0.2}
+          emissiveIntensity={0.3}
           transparent
-          opacity={0.7}
+          opacity={0.8}
+          metalness={0.1}
+          roughness={0.2}
         />
       </mesh>
     </Float>
@@ -83,35 +87,35 @@ function Scene() {
   return (
     <>
       {/* Lighting */}
-      <ambientLight intensity={0.4} />
-      <pointLight position={[10, 10, 5]} intensity={1} color="#6366f1" />
-      <pointLight position={[-10, -10, -5]} intensity={0.5} color="#8b5cf6" />
-      <directionalLight position={[0, 5, 5]} intensity={0.8} color="#ffffff" />
+      <ambientLight intensity={0.3} />
+      <pointLight position={[10, 10, 5]} intensity={1.5} color="#0ea5e9" />
+      <pointLight position={[-10, -10, -5]} intensity={0.8} color="#60a5fa" />
+      <directionalLight position={[0, 5, 5]} intensity={1} color="#38bdf8" />
 
       {/* Environment */}
-      <Environment preset="city" />
+      <Environment preset="night" />
 
-      {/* Floating Documents */}
-      <FloatingDocument position={[-2, 1, -1]} rotation={[0, 0.3, 0]} color="#f8fafc" />
-      <FloatingDocument position={[2.5, -0.5, -2]} rotation={[0, -0.4, 0.1]} color="#f1f5f9" />
-      <FloatingDocument position={[-1.5, -1.2, 1]} rotation={[0.1, 0.6, -0.1]} color="#ffffff" />
-      <FloatingDocument position={[1, 1.8, 0.5]} rotation={[-0.1, -0.2, 0]} color="#f8fafc" />
-      <FloatingDocument position={[3, 0.8, -1.5]} rotation={[0.05, -0.7, 0.05]} color="#f1f5f9" />
+      {/* Floating Documents with ocean blue colors */}
+      <FloatingDocument position={[-2, 1, -1]} rotation={[0, 0.3, 0]} color="#0ea5e9" />
+      <FloatingDocument position={[2.5, -0.5, -2]} rotation={[0, -0.4, 0.1]} color="#60a5fa" />
+      <FloatingDocument position={[-1.5, -1.2, 1]} rotation={[0.1, 0.6, -0.1]} color="#38bdf8" />
+      <FloatingDocument position={[1, 1.8, 0.5]} rotation={[-0.1, -0.2, 0]} color="#0284c7" />
+      <FloatingDocument position={[3, 0.8, -1.5]} rotation={[0.05, -0.7, 0.05]} color="#0369a1" />
 
-      {/* Floating Orbs */}
-      <FloatingOrb position={[-3, 2, -0.5]} color="#6366f1" size={0.15} />
-      <FloatingOrb position={[3.5, 1.5, -1]} color="#8b5cf6" size={0.2} />
-      <FloatingOrb position={[-2, -2, 1.5]} color="#06b6d4" size={0.12} />
-      <FloatingOrb position={[2, -1.8, 0.8]} color="#3b82f6" size={0.18} />
-      <FloatingOrb position={[0, 2.5, -2]} color="#a855f7" size={0.1} />
+      {/* Floating Orbs with blue gradient */}
+      <FloatingOrb position={[-3, 2, -0.5]} color="#06b6d4" size={0.15} />
+      <FloatingOrb position={[3.5, 1.5, -1]} color="#0ea5e9" size={0.2} />
+      <FloatingOrb position={[-2, -2, 1.5]} color="#38bdf8" size={0.12} />
+      <FloatingOrb position={[2, -1.8, 0.8]} color="#60a5fa" size={0.18} />
+      <FloatingOrb position={[0, 2.5, -2]} color="#0284c7" size={0.1} />
 
       {/* Sparkles */}
       <Sparkles 
-        count={100} 
-        scale={[8, 4, 8]} 
-        size={2} 
-        speed={0.3}
-        color="#6366f1"
+        count={80} 
+        scale={[10, 6, 10]} 
+        size={3} 
+        speed={0.2}
+        color="#0ea5e9"
       />
 
       {/* Orbit Controls */}
@@ -119,7 +123,7 @@ function Scene() {
         enableZoom={false} 
         enablePan={false} 
         autoRotate 
-        autoRotateSpeed={0.5}
+        autoRotateSpeed={0.3}
         minPolarAngle={Math.PI / 2.5}
         maxPolarAngle={Math.PI / 1.5}
       />
