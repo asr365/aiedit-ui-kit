@@ -108,19 +108,34 @@ const Index = () => {
         </div>
         
         {/* Animated Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-blue-600/20 to-indigo-600/20 animate-pulse-slow" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-pink-600/30 to-teal-600/30 animate-pulse-slow" />
         
-        {/* Floating Particles */}
+        {/* Additional Color Layers */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-transparent to-emerald-500/20 animate-pulse-slow" style={{ animationDelay: "2s" }} />
+        <div className="absolute inset-0 bg-gradient-to-bl from-cyan-500/20 via-transparent to-pink-500/20 animate-pulse-slow" style={{ animationDelay: "4s" }} />
+        
+        {/* Enhanced Floating Particles */}
         <div className="absolute inset-0 overflow-hidden">
-          {Array.from({ length: 20 }).map((_, i) => (
+          {Array.from({ length: 30 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full floating"
+              className={`absolute w-3 h-3 rounded-full floating ${
+                i % 5 === 0 ? 'bg-pink-400/40' :
+                i % 5 === 1 ? 'bg-cyan-400/40' :
+                i % 5 === 2 ? 'bg-emerald-400/40' :
+                i % 5 === 3 ? 'bg-orange-400/40' :
+                'bg-purple-400/40'
+              }`}
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 6}s`,
-                animationDuration: `${4 + Math.random() * 4}s`
+                animationDuration: `${4 + Math.random() * 4}s`,
+                boxShadow: i % 5 === 0 ? '0 0 20px rgba(244, 114, 182, 0.6)' :
+                          i % 5 === 1 ? '0 0 20px rgba(34, 211, 238, 0.6)' :
+                          i % 5 === 2 ? '0 0 20px rgba(52, 211, 153, 0.6)' :
+                          i % 5 === 3 ? '0 0 20px rgba(251, 146, 60, 0.6)' :
+                                       '0 0 20px rgba(168, 85, 247, 0.6)'
               }}
             />
           ))}
@@ -128,24 +143,26 @@ const Index = () => {
         
         <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
           <div className="animate-fade-in">
-            <Badge className="mb-8 bg-white/30 backdrop-blur-md text-white border-white/40 text-base px-6 py-3 hover-scale shadow-2xl">
-              <Sparkles className="w-5 h-5 mr-3" />
+            <Badge className="mb-8 bg-gradient-to-r from-pink-500/30 to-teal-500/30 backdrop-blur-md text-white border-2 border-white/40 text-base px-6 py-3 hover-scale shadow-rainbow">
+              <Sparkles className="w-5 h-5 mr-3 text-yellow-300" />
               AI-Powered Document Processing
             </Badge>
           </div>
           
           <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight drop-shadow-2xl">
-              <span className="text-white drop-shadow-lg">Transform Documents</span>
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse">
+                Transform Documents
+              </span>
               <br />
-              <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
                 with AI Magic
               </span>
             </h1>
           </div>
           
           <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed text-white/95 drop-shadow-lg bg-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed text-white drop-shadow-lg bg-gradient-to-r from-purple-900/40 via-blue-900/40 to-teal-900/40 backdrop-blur-md rounded-2xl p-6 border-2 border-gradient-to-r from-pink-400/30 to-cyan-400/30 shadow-rainbow">
               The most advanced PDF processing platform. Convert, edit, analyze, and 
               chat with your documents using cutting-edge AI technology.
             </p>
@@ -153,8 +170,8 @@ const Index = () => {
           
           <div className="animate-fade-in flex flex-col sm:flex-row gap-6 justify-center" style={{ animationDelay: "0.6s" }}>
             <Link to="/signup">
-              <Button variant="glass" size="xl" className="min-w-[220px] hover-scale group text-lg py-4">
-                <Zap className="w-6 h-6 mr-3 group-hover:animate-pulse" />
+              <Button variant="glass" size="xl" className="min-w-[220px] hover-scale group text-lg py-4 bg-gradient-to-r from-pink-500/20 to-purple-500/20 border-2 border-white/40 shadow-rainbow hover:shadow-teal">
+                <Zap className="w-6 h-6 mr-3 group-hover:animate-pulse text-yellow-300" />
                 Start Free Trial
               </Button>
             </Link>
@@ -162,25 +179,25 @@ const Index = () => {
               <Button 
                 variant="outline" 
                 size="xl" 
-                className="min-w-[220px] bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20 hover-scale text-lg py-4"
+                className="min-w-[220px] bg-gradient-to-r from-teal-500/20 to-emerald-500/20 backdrop-blur-md border-2 border-cyan-400/40 text-white hover:bg-gradient-to-r hover:from-teal-500/30 hover:to-emerald-500/30 hover-scale text-lg py-4 shadow-teal"
               >
                 Explore Tools
-                <ArrowRight className="w-6 h-6 ml-3" />
+                <ArrowRight className="w-6 h-6 ml-3 text-emerald-300" />
               </Button>
             </Link>
           </div>
           
-          <div className="animate-fade-in mt-16 flex flex-wrap justify-center gap-12 text-sm opacity-80" style={{ animationDelay: "0.8s" }}>
-            <div className="flex items-center hover-scale">
-              <Shield className="w-5 h-5 mr-3" />
+          <div className="animate-fade-in mt-16 flex flex-wrap justify-center gap-12 text-sm opacity-90" style={{ animationDelay: "0.8s" }}>
+            <div className="flex items-center hover-scale bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-md rounded-full px-4 py-2 border border-blue-400/30">
+              <Shield className="w-5 h-5 mr-3 text-blue-300" />
               Enterprise-grade security
             </div>
-            <div className="flex items-center hover-scale">
-              <Clock className="w-5 h-5 mr-3" />
+            <div className="flex items-center hover-scale bg-gradient-to-r from-emerald-500/20 to-teal-500/20 backdrop-blur-md rounded-full px-4 py-2 border border-emerald-400/30">
+              <Clock className="w-5 h-5 mr-3 text-emerald-300" />
               Processing in seconds
             </div>
-            <div className="flex items-center hover-scale">
-              <Users className="w-5 h-5 mr-3" />
+            <div className="flex items-center hover-scale bg-gradient-to-r from-pink-500/20 to-red-500/20 backdrop-blur-md rounded-full px-4 py-2 border border-pink-400/30">
+              <Users className="w-5 h-5 mr-3 text-pink-300" />
               Trusted by 100K+ users
             </div>
           </div>
