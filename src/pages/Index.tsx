@@ -128,24 +128,24 @@ const Index = () => {
         
         <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
           <div className="animate-fade-in">
-            <Badge className="mb-8 bg-white/20 backdrop-blur-md text-white border-white/30 text-base px-6 py-3 hover-scale">
+            <Badge className="mb-8 bg-white/30 backdrop-blur-md text-white border-white/40 text-base px-6 py-3 hover-scale shadow-2xl">
               <Sparkles className="w-5 h-5 mr-3" />
               AI-Powered Document Processing
             </Badge>
           </div>
           
           <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-              Transform Documents
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight drop-shadow-2xl">
+              <span className="text-white drop-shadow-lg">Transform Documents</span>
               <br />
-              <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent animate-pulse">
+              <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent drop-shadow-2xl">
                 with AI Magic
               </span>
             </h1>
           </div>
           
           <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-90">
+            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed text-white/95 drop-shadow-lg bg-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               The most advanced PDF processing platform. Convert, edit, analyze, and 
               chat with your documents using cutting-edge AI technology.
             </p>
