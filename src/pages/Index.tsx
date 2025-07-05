@@ -1,6 +1,4 @@
 import Navigation from "@/components/Navigation";
-import Hero3D from "@/components/Hero3D";
-import heroImage from "@/assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +6,8 @@ import { Link } from "react-router-dom";
 import {
   FileText, Merge, Split, Archive, Zap, Shield, Clock,
   Users, Star, ArrowRight, Sparkles, Brain, BarChart3,
-  MessageSquare, Languages, Search, CheckCircle, Heart
+  MessageSquare, Languages, Search, CheckCircle, Heart,
+  Play, Target, Award, Globe
 } from "lucide-react";
 
 const Index = () => {
@@ -136,6 +135,15 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/dashboard">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                >
+                  <Play className="w-5 h-5 mr-2" />
+                  Try Dashboard
+                </Button>
+              </Link>
               <Link to="/signup">
                 <Button 
                   size="lg" 

@@ -11,7 +11,9 @@ import Tools from "./pages/Tools";
 import Features from "./pages/Features";
 import About from "./pages/About";
 import PDFToWord from "./pages/PDFToWord";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import { DashboardLayout } from "./components/DashboardLayout";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,21 @@ const App = () => (
           <Route path="/features" element={<Features />} />
           <Route path="/about" element={<About />} />
           <Route path="/tools/pdf-to-word" element={<PDFToWord />} />
+          
+          {/* Dashboard Routes */}
+          <Route path="/dashboard/*" element={
+            <DashboardLayout>
+              <Routes>
+                <Route index element={<Dashboard />} />
+                <Route path="documents" element={<div className="p-8"><h1 className="text-2xl font-bold">Documents</h1></div>} />
+                <Route path="ai-tools" element={<div className="p-8"><h1 className="text-2xl font-bold">AI Tools</h1></div>} />
+                <Route path="analytics" element={<div className="p-8"><h1 className="text-2xl font-bold">Analytics</h1></div>} />
+                <Route path="upload" element={<div className="p-8"><h1 className="text-2xl font-bold">Upload</h1></div>} />
+                <Route path="settings" element={<div className="p-8"><h1 className="text-2xl font-bold">Settings</h1></div>} />
+              </Routes>
+            </DashboardLayout>
+          } />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
