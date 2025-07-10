@@ -130,8 +130,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
-      <div className="p-8">
+    <div className="p-8">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
@@ -358,9 +357,8 @@ const Dashboard = () => {
                 </div>
               </CardContent>
             </Card>
-          </div>
         </div>
-      </div>
+    </div>
     </div>
   );
 };
