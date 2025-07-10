@@ -7,7 +7,7 @@ import {
   FileText, Merge, Split, Archive, Zap, Shield, Clock,
   Users, Star, ArrowRight, Sparkles, Brain, BarChart3,
   MessageSquare, Languages, Search, CheckCircle, Heart,
-  Play, Target, Award, Globe, Upload
+  Play, Target, Award, Globe, Upload, User, Settings
 } from "lucide-react";
 
 const Index = () => {
@@ -140,17 +140,17 @@ const Index = () => {
                   size="lg" 
                   className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
-                  <Play className="w-5 h-5 mr-2" />
-                  Try Dashboard
+                  <User className="w-5 h-5 mr-2" />
+                  User Dashboard
                 </Button>
               </Link>
-              <Link to="/signup">
+              <Link to="/admin">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
-                  Get Started
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <Shield className="w-5 h-5 mr-2" />
+                  Admin Dashboard
                 </Button>
               </Link>
               <Link to="/tools">
