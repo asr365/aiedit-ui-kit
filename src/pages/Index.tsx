@@ -103,16 +103,21 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100">
         {/* Background Elements */}
         <div className="absolute inset-0">
-          {/* Gradient Orbs */}
-          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse-slow" />
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-300/10 to-blue-300/10 rounded-full blur-3xl" />
+          {/* Animated Gradient Orbs */}
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full blur-3xl animate-pulse-slow hover-glow" />
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-300/15 to-blue-300/15 rounded-full blur-3xl rotate-slow" />
+          
+          {/* Dynamic floating particles */}
+          <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-purple-400/40 rounded-full blur-sm bounce-gentle" />
+          <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-pink-400/40 rounded-full blur-sm bounce-gentle" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-3/4 w-5 h-5 bg-blue-400/40 rounded-full blur-sm bounce-gentle" style={{ animationDelay: '2s' }} />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center py-20">
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-purple-200/50">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-purple-200/50 hover-glow">
               <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse" />
               <span className="text-sm font-medium text-gray-700">AI-Powered Platform</span>
             </div>
@@ -120,7 +125,7 @@ const Index = () => {
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
               <span className="text-gray-900">The Smarter,</span>
               <br />
-              <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent animate-slide-up">
                 AI Powered
               </span>
               <br />
@@ -129,16 +134,53 @@ const Index = () => {
               <span className="text-gray-900">Platform</span>
             </h1>
 
-            <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
+            <p className="text-xl text-gray-600 leading-relaxed max-w-lg animate-slide-up" style={{ animationDelay: '200ms' }}>
               Harness the power of advanced AI to transform your document workflow. 
               Convert, analyze, and process documents with unprecedented accuracy.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* File Upload Box */}
+            <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-6 border-2 border-dashed border-purple-300/50 hover:border-purple-400/70 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] animate-slide-in-up" style={{ animationDelay: '400ms' }}>
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-300">
+                  <Upload className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">Drop files to get started</h3>
+                  <p className="text-gray-600 text-sm mb-4">Drag & drop your documents here or click to browse</p>
+                  <Link to="/tools">
+                    <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 rounded-lg font-medium hover:scale-105 transition-all duration-300">
+                      <FileText className="w-4 h-4 mr-2" />
+                      Start Converting
+                    </Button>
+                  </Link>
+                </div>
+                <div className="flex items-center justify-center gap-4 text-xs text-gray-500">
+                  <span className="flex items-center gap-1">
+                    <FileText className="w-3 h-3" />
+                    PDF
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <FileText className="w-3 h-3" />
+                    Word
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <FileText className="w-3 h-3" />
+                    Excel
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <FileText className="w-3 h-3" />
+                    PowerPoint
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 animate-slide-in-up" style={{ animationDelay: '600ms' }}>
               <Link to="/dashboard">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover-glow"
                 >
                   <User className="w-5 h-5 mr-2" />
                   User Dashboard
@@ -147,7 +189,7 @@ const Index = () => {
               <Link to="/admin">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover-glow"
                 >
                   <Shield className="w-5 h-5 mr-2" />
                   Admin Dashboard
