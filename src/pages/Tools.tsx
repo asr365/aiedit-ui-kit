@@ -763,6 +763,7 @@ const Tools = () => {
                           <Button 
                             variant="outline" 
                             className="w-full group-hover:bg-gradient-primary group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm group-hover:shadow-lg relative overflow-hidden"
+                            onClick={() => window.location.href = tool.href}
                           >
                             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <Upload className="w-4 h-4 mr-2 relative z-10 group-hover:animate-bounce" />

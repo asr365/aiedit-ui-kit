@@ -11,6 +11,9 @@ import Tools from "./pages/Tools";
 import Features from "./pages/Features";
 import About from "./pages/About";
 import PDFToWord from "./pages/PDFToWord";
+import MergePDF from "./pages/MergePDF";
+import AISummarizer from "./pages/AISummarizer";
+import CompressPDF from "./pages/CompressPDF";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -34,6 +37,9 @@ const App = () => (
           <Route path="/features" element={<Features />} />
           <Route path="/about" element={<About />} />
           <Route path="/tools/pdf-to-word" element={<PDFToWord />} />
+          <Route path="/tools/merge-pdf" element={<MergePDF />} />
+          <Route path="/tools/ai-summarizer" element={<AISummarizer />} />
+          <Route path="/tools/compress-pdf" element={<CompressPDF />} />
           
           {/* User Dashboard Routes */}
           <Route path="/dashboard/*" element={
