@@ -14,6 +14,9 @@ import PDFToWord from "./pages/PDFToWord";
 import MergePDF from "./pages/MergePDF";
 import AISummarizer from "./pages/AISummarizer";
 import CompressPDF from "./pages/CompressPDF";
+import SplitPDF from "./pages/SplitPDF";
+import EditPDF from "./pages/EditPDF";
+import PDFToExcel from "./pages/PDFToExcel";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -40,6 +43,9 @@ const App = () => (
           <Route path="/tools/merge-pdf" element={<MergePDF />} />
           <Route path="/tools/ai-summarizer" element={<AISummarizer />} />
           <Route path="/tools/compress-pdf" element={<CompressPDF />} />
+          <Route path="/tools/split-pdf" element={<SplitPDF />} />
+          <Route path="/tools/edit-pdf" element={<EditPDF />} />
+          <Route path="/tools/pdf-to-excel" element={<PDFToExcel />} />
           
           {/* User Dashboard Routes */}
           <Route path="/dashboard/*" element={
