@@ -17,6 +17,9 @@ import CompressPDF from "./pages/CompressPDF";
 import SplitPDF from "./pages/SplitPDF";
 import EditPDF from "./pages/EditPDF";
 import PDFToExcel from "./pages/PDFToExcel";
+import RotatePDF from "./pages/RotatePDF";
+import PDFViewer from "./pages/PDFViewer";
+import ProtectPDF from "./pages/ProtectPDF";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -46,6 +49,9 @@ const App = () => (
           <Route path="/tools/split-pdf" element={<SplitPDF />} />
           <Route path="/tools/edit-pdf" element={<EditPDF />} />
           <Route path="/tools/pdf-to-excel" element={<PDFToExcel />} />
+          <Route path="/tools/rotate-pdf" element={<RotatePDF />} />
+          <Route path="/tools/pdf-viewer" element={<PDFViewer />} />
+          <Route path="/tools/protect-pdf" element={<ProtectPDF />} />
           
           {/* User Dashboard Routes */}
           <Route path="/dashboard/*" element={
