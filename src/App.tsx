@@ -20,6 +20,11 @@ import PDFToExcel from "./pages/PDFToExcel";
 import RotatePDF from "./pages/RotatePDF";
 import PDFViewer from "./pages/PDFViewer";
 import ProtectPDF from "./pages/ProtectPDF";
+import UnlockPDF from "./pages/UnlockPDF";
+import PDFToPPT from "./pages/PDFToPPT";
+import PDFToImage from "./pages/PDFToImage";
+import PDFToText from "./pages/PDFToText";
+import WordToPDF from "./pages/WordToPDF";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -52,6 +57,11 @@ const App = () => (
           <Route path="/tools/rotate-pdf" element={<RotatePDF />} />
           <Route path="/tools/pdf-viewer" element={<PDFViewer />} />
           <Route path="/tools/protect-pdf" element={<ProtectPDF />} />
+          <Route path="/tools/unlock-pdf" element={<UnlockPDF />} />
+          <Route path="/tools/pdf-to-ppt" element={<PDFToPPT />} />
+          <Route path="/tools/pdf-to-image" element={<PDFToImage />} />
+          <Route path="/tools/pdf-to-text" element={<PDFToText />} />
+          <Route path="/tools/word-to-pdf" element={<WordToPDF />} />
           
           {/* User Dashboard Routes */}
           <Route path="/dashboard/*" element={
