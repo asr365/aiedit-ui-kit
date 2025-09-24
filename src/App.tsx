@@ -25,6 +25,11 @@ import PDFToPPT from "./pages/PDFToPPT";
 import PDFToImage from "./pages/PDFToImage";
 import PDFToText from "./pages/PDFToText";
 import WordToPDF from "./pages/WordToPDF";
+import ExcelToPDF from "./pages/ExcelToPDF";
+import PPTToPDF from "./pages/PPTToPDF";
+import JPGToPDF from "./pages/JPGToPDF";
+import HTMLToPDF from "./pages/HTMLToPDF";
+import ExtractPages from "./pages/ExtractPages";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -62,6 +67,11 @@ const App = () => (
           <Route path="/tools/pdf-to-image" element={<PDFToImage />} />
           <Route path="/tools/pdf-to-text" element={<PDFToText />} />
           <Route path="/tools/word-to-pdf" element={<WordToPDF />} />
+          <Route path="/tools/excel-to-pdf" element={<ExcelToPDF />} />
+          <Route path="/tools/ppt-to-pdf" element={<PPTToPDF />} />
+          <Route path="/tools/jpg-to-pdf" element={<JPGToPDF />} />
+          <Route path="/tools/html-to-pdf" element={<HTMLToPDF />} />
+          <Route path="/tools/extract-pages" element={<ExtractPages />} />
           
           {/* User Dashboard Routes */}
           <Route path="/dashboard/*" element={
