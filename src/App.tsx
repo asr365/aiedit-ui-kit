@@ -30,6 +30,20 @@ import PPTToPDF from "./pages/PPTToPDF";
 import JPGToPDF from "./pages/JPGToPDF";
 import HTMLToPDF from "./pages/HTMLToPDF";
 import ExtractPages from "./pages/ExtractPages";
+import DeletePages from "./pages/DeletePages";
+import OrganizePDF from "./pages/OrganizePDF";
+import CropPDF from "./pages/CropPDF";
+import ResizePDF from "./pages/ResizePDF";
+import AlternateMix from "./pages/AlternateMix";
+import SplitPages from "./pages/SplitPages";
+import SplitBookmarks from "./pages/SplitBookmarks";
+import SplitHalf from "./pages/SplitHalf";
+import SplitSize from "./pages/SplitSize";
+import SplitText from "./pages/SplitText";
+import PDFChat from "./pages/PDFChat";
+import AITranslate from "./pages/AITranslate";
+import SignPDF from "./pages/SignPDF";
+import OCRScanner from "./pages/OCRScanner";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -72,6 +86,20 @@ const App = () => (
           <Route path="/tools/jpg-to-pdf" element={<JPGToPDF />} />
           <Route path="/tools/html-to-pdf" element={<HTMLToPDF />} />
           <Route path="/tools/extract-pages" element={<ExtractPages />} />
+          <Route path="/tools/delete-pages" element={<DeletePages />} />
+          <Route path="/tools/organize-pdf" element={<OrganizePDF />} />
+          <Route path="/tools/crop-pdf" element={<CropPDF />} />
+          <Route path="/tools/resize-pdf" element={<ResizePDF />} />
+          <Route path="/tools/alternate-mix" element={<AlternateMix />} />
+          <Route path="/tools/split-pages" element={<SplitPages />} />
+          <Route path="/tools/split-bookmarks" element={<SplitBookmarks />} />
+          <Route path="/tools/split-half" element={<SplitHalf />} />
+          <Route path="/tools/split-size" element={<SplitSize />} />
+          <Route path="/tools/split-text" element={<SplitText />} />
+          <Route path="/tools/pdf-chat" element={<PDFChat />} />
+          <Route path="/tools/ai-translate" element={<AITranslate />} />
+          <Route path="/tools/sign-pdf" element={<SignPDF />} />
+          <Route path="/tools/ocr-scanner" element={<OCRScanner />} />
           
           {/* User Dashboard Routes */}
           <Route path="/dashboard/*" element={
