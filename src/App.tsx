@@ -44,6 +44,20 @@ import PDFChat from "./pages/PDFChat";
 import AITranslate from "./pages/AITranslate";
 import SignPDF from "./pages/SignPDF";
 import OCRScanner from "./pages/OCRScanner";
+import AIQuestionGenerator from "./pages/AIQuestionGenerator";
+import SmartForms from "./pages/SmartForms";
+import SentimentAnalysis from "./pages/SentimentAnalysis";
+import ResumeScanner from "./pages/ResumeScanner";
+import FillSign from "./pages/FillSign";
+import CreateForms from "./pages/CreateForms";
+import RequestSignatures from "./pages/RequestSignatures";
+import FlattenPDF from "./pages/FlattenPDF";
+import PDFAnnotator from "./pages/PDFAnnotator";
+import WatermarkPDF from "./pages/WatermarkPDF";
+import PageNumbers from "./pages/PageNumbers";
+import HeaderFooter from "./pages/HeaderFooter";
+import RedactPDF from "./pages/RedactPDF";
+import RemoveAnnotations from "./pages/RemoveAnnotations";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -100,6 +114,20 @@ const App = () => (
           <Route path="/tools/ai-translate" element={<AITranslate />} />
           <Route path="/tools/sign-pdf" element={<SignPDF />} />
           <Route path="/tools/ocr-scanner" element={<OCRScanner />} />
+          <Route path="/tools/ai-question-generator" element={<AIQuestionGenerator />} />
+          <Route path="/tools/smart-forms" element={<SmartForms />} />
+          <Route path="/tools/sentiment-analysis" element={<SentimentAnalysis />} />
+          <Route path="/tools/resume-scanner" element={<ResumeScanner />} />
+          <Route path="/tools/fill-sign" element={<FillSign />} />
+          <Route path="/tools/create-forms" element={<CreateForms />} />
+          <Route path="/tools/request-signatures" element={<RequestSignatures />} />
+          <Route path="/tools/flatten-pdf" element={<FlattenPDF />} />
+          <Route path="/tools/pdf-annotator" element={<PDFAnnotator />} />
+          <Route path="/tools/watermark-pdf" element={<WatermarkPDF />} />
+          <Route path="/tools/page-numbers" element={<PageNumbers />} />
+          <Route path="/tools/header-footer" element={<HeaderFooter />} />
+          <Route path="/tools/redact-pdf" element={<RedactPDF />} />
+          <Route path="/tools/remove-annotations" element={<RemoveAnnotations />} />
           
           {/* User Dashboard Routes */}
           <Route path="/dashboard/*" element={
