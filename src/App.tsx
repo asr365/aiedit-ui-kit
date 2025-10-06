@@ -58,6 +58,19 @@ import PageNumbers from "./pages/PageNumbers";
 import HeaderFooter from "./pages/HeaderFooter";
 import RedactPDF from "./pages/RedactPDF";
 import RemoveAnnotations from "./pages/RemoveAnnotations";
+import DeskewPDF from "./pages/DeskewPDF";
+import GrayscalePDF from "./pages/GrayscalePDF";
+import ExtractImages from "./pages/ExtractImages";
+import PDFScanner from "./pages/PDFScanner";
+import RepairPDF from "./pages/RepairPDF";
+import CreateBookmarks from "./pages/CreateBookmarks";
+import EditMetadata from "./pages/EditMetadata";
+import BatesNumbering from "./pages/BatesNumbering";
+import NUpPrinting from "./pages/NUpPrinting";
+import RenameFiles from "./pages/RenameFiles";
+import DocumentComparison from "./pages/DocumentComparison";
+import SharePDF from "./pages/SharePDF";
+import QRGenerator from "./pages/QRGenerator";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -128,6 +141,19 @@ const App = () => (
           <Route path="/tools/header-footer" element={<HeaderFooter />} />
           <Route path="/tools/redact-pdf" element={<RedactPDF />} />
           <Route path="/tools/remove-annotations" element={<RemoveAnnotations />} />
+          <Route path="/tools/deskew-pdf" element={<DeskewPDF />} />
+          <Route path="/tools/grayscale-pdf" element={<GrayscalePDF />} />
+          <Route path="/tools/extract-images" element={<ExtractImages />} />
+          <Route path="/tools/pdf-scanner" element={<PDFScanner />} />
+          <Route path="/tools/repair-pdf" element={<RepairPDF />} />
+          <Route path="/tools/create-bookmarks" element={<CreateBookmarks />} />
+          <Route path="/tools/edit-metadata" element={<EditMetadata />} />
+          <Route path="/tools/bates-numbering" element={<BatesNumbering />} />
+          <Route path="/tools/nup-printing" element={<NUpPrinting />} />
+          <Route path="/tools/rename-files" element={<RenameFiles />} />
+          <Route path="/tools/document-comparison" element={<DocumentComparison />} />
+          <Route path="/tools/share-pdf" element={<SharePDF />} />
+          <Route path="/tools/qr-generator" element={<QRGenerator />} />
           
           {/* User Dashboard Routes */}
           <Route path="/dashboard/*" element={
