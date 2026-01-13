@@ -1,183 +1,76 @@
-import { useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Upload, X, Download, FileText, Copy } from "lucide-react";
-import Navigation from "@/components/Navigation";
+import ToolPageTemplate, { ToolConfig } from "@/components/ToolPageTemplate";
 
 const OrganizePDF = () => {
-  const [files, setFiles] = useState<File[]>([]);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [results, setResults] = useState<Array<{ name: string; url: string }>>([]);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleFileSelect = (selectedFiles: FileList | null) => {
-    if (selectedFiles) {
-      const newFiles = Array.from(selectedFiles).filter(file => file.type === "application/pdf");
-      setFiles(prev => [...prev, ...newFiles]);
-    }
+  const config: ToolConfig = {
+    title: "Organize PDF",
+    subtitle: "Sort, delete, and rearrange PDF pages",
+    description: "Reorder, rotate, and delete pages from your PDF visually.",
+    acceptedFiles: ".pdf",
+    multiple: false,
+    uploadButtonText: "Upload PDF file",
+    processingText: "Applying changes...",
+    completedTitle: "Organization Complete!",
+    completedDescription: "Your PDF has been reorganized successfully.",
+    accentColor: "green",
+    howToTitle: "How To Organize PDF Pages",
+    howToSubtitle: "Rearrange, rotate, and delete pages in your PDF documents.",
+    steps: [
+      {
+        title: "Upload your PDF",
+        description: "Select the PDF file you want to organize."
+      },
+      {
+        title: "Rearrange pages",
+        description: "Drag and drop pages to reorder them. Rotate or delete pages as needed."
+      },
+      {
+        title: "Download organized PDF",
+        description: "Download your PDF with the new page arrangement."
+      }
+    ],
+    features: [
+      {
+        title: "Drag and drop",
+        description: "Reorder pages by dragging them to new positions."
+      },
+      {
+        title: "Page rotation",
+        description: "Rotate individual pages 90° or 180°."
+      },
+      {
+        title: "Delete pages",
+        description: "Remove unwanted pages from your document."
+      },
+      {
+        title: "Add more pages",
+        description: "Insert pages from other PDF files."
+      },
+      {
+        title: "Visual preview",
+        description: "See page thumbnails for easy organization."
+      },
+      {
+        title: "Undo changes",
+        description: "Revert changes before saving your final PDF."
+      }
+    ],
+    faqItems: [
+      {
+        question: "Can I add pages from another PDF?",
+        answer: "Yes, you can upload additional PDF files and add their pages to your document."
+      },
+      {
+        question: "How do I reorder pages?",
+        answer: "Simply drag a page thumbnail and drop it in the new position."
+      },
+      {
+        question: "Can I undo my changes?",
+        answer: "Yes, you can reset to the original order or undo individual changes before downloading."
+      }
+    ]
   };
 
-  const removeFile = (index: number) => {
-    setFiles(files.filter((_, i) => i !== index));
-  };
-
-  const handleOrganize = async () => {
-    if (files.length === 0) return;
-    
-    setIsProcessing(true);
-    setProgress(0);
-    setResults([]);
-
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setIsProcessing(false);
-          setResults(files.map(file => ({
-            name: `${file.name.replace('.pdf', '')}_organized.pdf`,
-            url: '#'
-          })));
-          return 100;
-        }
-        return prev + 10;
-      });
-    }, 200);
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
-      <Navigation />
-      
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-xl">
-                <Copy className="h-8 w-8 text-blue-600" />
-              </div>
-              <h1 className="text-4xl font-bold">Organize PDF</h1>
-            </div>
-            <p className="text-muted-foreground text-lg">
-              Reorder and arrange PDF pages efficiently
-            </p>
-          </div>
-
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Upload className="h-5 w-5" />
-                Upload PDF Files
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div
-                className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center cursor-pointer hover:border-muted-foreground/50 transition-colors"
-                onClick={() => fileInputRef.current?.click()}
-                onDrop={(e) => {
-                  e.preventDefault();
-                  handleFileSelect(e.dataTransfer.files);
-                }}
-                onDragOver={(e) => e.preventDefault()}
-              >
-                <FileText className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                <p className="text-lg font-medium mb-2">Drop your PDF files here</p>
-                <p className="text-muted-foreground mb-4">or click to browse files</p>
-                <Button variant="outline">Choose Files</Button>
-              </div>
-              <input
-                ref={fileInputRef}
-                type="file"
-                multiple
-                accept=".pdf"
-                onChange={(e) => handleFileSelect(e.target.files)}
-                className="hidden"
-              />
-            </CardContent>
-          </Card>
-
-          {files.length > 0 && (
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle>Selected Files ({files.length})</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {files.map((file, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-muted rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-blue-100 dark:bg-blue-900/20 rounded">
-                          <FileText className="h-4 w-4 text-blue-600" />
-                        </div>
-                        <div>
-                          <p className="font-medium">{file.name}</p>
-                          <p className="text-sm text-muted-foreground">
-                            {(file.size / 1024 / 1024).toFixed(2)} MB
-                          </p>
-                        </div>
-                      </div>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => removeFile(index)}
-                      >
-                        <X className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="mt-6">
-                  <Button 
-                    onClick={handleOrganize} 
-                    disabled={isProcessing}
-                    className="w-full"
-                    size="lg"
-                  >
-                    <Copy className="h-4 w-4 mr-2" />
-                    {isProcessing ? "Organizing..." : "Organize Pages"}
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {isProcessing && (
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle>Organizing PDF pages...</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Progress value={progress} className="mb-4" />
-                <p className="text-center text-muted-foreground">
-                  {progress}% complete
-                </p>
-              </CardContent>
-            </Card>
-          )}
-
-          {results.length > 0 && (
-            <div className="space-y-6">
-              {results.map((result, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      {result.name}
-                      <Button variant="outline" size="sm">
-                        <Download className="h-4 w-4 mr-2" />
-                        Download
-                      </Button>
-                    </CardTitle>
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+  return <ToolPageTemplate config={config} />;
 };
 
 export default OrganizePDF;
